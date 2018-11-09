@@ -117,8 +117,13 @@ class MetaCorgiSnacks
     (tastiness > 30) ? "#{result}" : result
   end
 
-
+#use the same method missing approach as in last method
+#this method will call on self
   def self.define_snack(name)
-    # Your code goes here...
+    info = @snack_box.send("get_#{name}_info", @box_id)
+    tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+    display_name = "#{name.to_s.split("_").map(&:capitalize).join(" ")}"
+    result = "#{display_name}: #{info}: #{tastiness}"
+    (tastiness > 30) ? "#{result}" : result
   end
 end
