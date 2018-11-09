@@ -109,13 +109,13 @@ class MetaCorgiSnacks
     @box_id = box_id
   end
 
-  def method_missing(name, *args)
-    info = @snack_box.send("get_#{name}_info", @box_id)
-    tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
-    name = "#{name.to_s.split("_").map(&:capitalize).join(" ")}"
-    result = "#{name}: #{info}: #{tastiness}"
-    (tastiness > 30) ? "#{result}" : result
-  end
+  # def method_missing(name, *args)
+  #   info = @snack_box.send("get_#{name}_info", @box_id)
+  #   tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+  #   name = "#{name.to_s.split("_").map(&:capitalize).join(" ")}"
+  #   result = "#{name}: #{info}: #{tastiness}"
+  #   (tastiness > 30) ? "#{result}" : result
+  # end
 
 #use the same method missing approach as in last method
 #this method will call on self
